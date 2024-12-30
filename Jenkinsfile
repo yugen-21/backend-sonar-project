@@ -60,7 +60,8 @@ pipeline {
                 sonar-scanner -Dsonar.projectKey=backend-project ^ 
                     -Dsonar.sources=. ^ 
                     -Dsonar.host.url=http://localhost:9000 ^ 
-                    -Dsonar.token=%SONAR_TOKEN% || exit /b 1
+                    -Dsonar.token=%SONAR_TOKEN% ^
+                     -X || exit /b 1
                 '''
             }
         }
