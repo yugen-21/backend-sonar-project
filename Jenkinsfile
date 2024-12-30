@@ -30,12 +30,13 @@ pipeline {
         stage('Lint') {
             steps {
                 bat '''
-                set PATH=%NODEJS_HOME%;%PATH%
-                cd %PROJECT_DIR%
-                npm run lint || exit /b 1
+                set PATH=backend\\node_modules\\.bin;%PATH%
+                cd backend/
+                npx eslint . || exit /b 1
                 '''
             }
         }
+
  
         stage('Build') {
             steps {
